@@ -18,16 +18,16 @@ const execP = promisify(exec);
 
 if (process.argv.length < 3) {
   console.log(
-    'Please specify a patch directory inside the `patches` directory',
+    'Please specify a patch name inside the `patches` directory, eg. for patches/signal.ts, run:',
   );
   console.log('    $ yarn patch signal');
   process.exit(1);
 }
 
-const patchesDir = `./patches/${process.argv[2]!}`;
+const patchFile = `./patches/${process.argv[2]!}.ts`;
 
-if (!existsSync(patchesDir)) {
-  console.log(`Patch directory ${patchesDir} not found`);
+if (!existsSync(patchFile)) {
+  console.log(`Patch file ${patchFile} not found`);
   process.exit(1);
 }
 
@@ -43,7 +43,7 @@ const {
   patchConfig: patch,
 }: {
   patchConfig: PatchConfig;
-} = await import(`${patchesDir}/index.js`);
+} = await import(patchFile);
 
 if (!patch.resourcesPath || !existsSync(patch.resourcesPath)) {
   console.log(

@@ -1,4 +1,4 @@
-import { PatchConfig } from '../../';
+import { PatchConfig } from '../';
 
 export const patchConfig: PatchConfig = {
   resourcesPath: '/Applications/Signal.app/Contents/Resources',
