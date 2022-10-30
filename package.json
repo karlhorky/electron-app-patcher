@@ -5,6 +5,13 @@
   "repository": "git@github.com:karlhorky/electron-patcher.git",
   "author": "Karl Horky <karl.horky@gmail.com>",
   "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=16.18.0"
+  },
+  "scripts": {
+    "patch": "node --loader ts-node/esm index.ts"
+  },
   "devDependencies": {
     "@babel/eslint-parser": "7.19.1",
     "@next/eslint-plugin-next": "13.0.0",
@@ -41,5 +48,9 @@
     "eslint-plugin-react": "7.31.10",
     "eslint-plugin-react-hooks": "4.6.0",
     "@typescript-eslint/utils": "5.41.0"
+  },
+  "dependencies": {
+    "@electron/asar": "3.2.1",
+    "ts-node": "10.9.1"
   }
 }
