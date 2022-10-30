@@ -11,6 +11,7 @@ export const patchConfig: PatchConfig = {
         return content.replace(
           /(\}, \[setLarge\]\);\n)( {6}if \(isBlocked \|\| areWePending \|\| messageRequestsEnabled && !acceptedMessageRequest\) \{)/,
           `$1
+
       // Patch to focus message composition input when key is pressed
       (0, import_react.useEffect)(() => {
         const handler = (e) => {
@@ -38,6 +39,8 @@ export const patchConfig: PatchConfig = {
           document.removeEventListener('keydown', handler);
         };
       });
+      // End patch
+
 $2`,
         );
       },
