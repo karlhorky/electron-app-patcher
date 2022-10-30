@@ -1,8 +1,8 @@
 {
-  "name": "electron-patcher",
+  "name": "electron-app-patcher",
   "version": "1.0.0",
   "main": "index.ts",
-  "repository": "git@github.com:karlhorky/electron-patcher.git",
+  "repository": "git@github.com:karlhorky/electron-app-patcher.git",
   "author": "Karl Horky <karl.horky@gmail.com>",
   "license": "MIT",
   "type": "module",
