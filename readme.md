@@ -40,7 +40,7 @@ Newer versions of macOS may prevent the app where you run the script from modify
 <figure>
   <img src="macos-security-prevented-modifying-apps.png" alt="" />
   <figcaption>
-    Screenshot of security notification in macOS showing the message `"Visual Studio Code" was prevented from modifying apps on your Mac`.
+    Screenshot of security notification in macOS showing the message <code>"Visual Studio Code" was prevented from modifying apps on your Mac</code>.
   </figcaption>
 </figure>
 
@@ -71,7 +71,7 @@ After opening the newly re-signed app, you may receive a permissions prompt for 
 <figure>
   <img src="macos-resigned-app-permissions.png" alt="" />
   <figcaption>
-    Screenshot of security notification in macOS showing the message `Signal wants to use your confidential information stored in "Signal Safe Storage" in your keychain.`.
+    Screenshot of security notification in macOS showing the message <code>Signal wants to use your confidential information stored in "Signal Safe Storage" in your keychain.</code>.
   </figcaption>
 </figure>
 
