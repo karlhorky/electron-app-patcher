@@ -1,5 +1,7 @@
 # Electron App Patcher
 
+Patch an Electron app to apply your own changes (macOS only for now)
+
 ## Install
 
 ```bash
