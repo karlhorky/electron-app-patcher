@@ -1,7 +1,7 @@
 import { PatchConfig } from '../';
 
 export const patchConfig: PatchConfig = {
-  resourcesPath: '/Applications/Signal.app/Contents/Resources',
+  appPath: '/Applications/Signal.app',
   transforms: [
     // Patch to focus message composition input when key is pressed
     // PR: https://github.com/signalapp/Signal-Desktop/pull/4998

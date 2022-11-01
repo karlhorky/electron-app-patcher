@@ -32,7 +32,7 @@ if (!existsSync(patchFile)) {
 }
 
 export type PatchConfig = {
-  resourcesPath: string;
+  appPath: string;
   transforms: {
     filePath: string;
     transform: (content: string) => string;
@@ -45,19 +45,21 @@ const {
   patchConfig: PatchConfig;
 } = await import(patchFile);
 
-if (!patch.resourcesPath || !existsSync(patch.resourcesPath)) {
+const resourcesPath = `${patch.appPath}/Contents/Resources`;
+
+if (!patch.appPath || !existsSync(patch.appPath)) {
   console.log(
-    `Directory does not exist at resourcesPath ${patch.resourcesPath}`,
+    `Directory does not exist at app path ${patch.appPath} or resources path ${resourcesPath}`,
   );
   process.exit(1);
 }
 
-const appAsarPath = `${patch.resourcesPath}/app.asar`;
-const appAsarBakPath = `${patch.resourcesPath}/app.asar.bak`;
+const appAsarPath = `${resourcesPath}/app.asar`;
+const appAsarBakPath = `${resourcesPath}/app.asar.bak`;
 
 if (!existsSync(appAsarPath)) {
   console.log(
-    `resourcesPath directory ${patch.resourcesPath} doesn't contain app.asar, patch already applied?`,
+    `Resources path directory ${resourcesPath} doesn't contain app.asar`,
   );
   process.exit(1);
 }
@@ -78,7 +80,7 @@ if (!existsSync(appAsarBakPath)) {
   createReadStream(appAsarPath).pipe(createWriteStream(appAsarBakPath));
 }
 
-const appPath = `${patch.resourcesPath}/app`;
+const appPath = `${resourcesPath}/app`;
 
 await execP(`yarn asar extract ${appAsarPath} ${appPath}`);
 
@@ -93,22 +95,26 @@ console.log('Repacking app.asar to enable patch...');
 
 await execP(`yarn asar pack ${appPath} ${appAsarPath}`);
 
-// TODO: get hash, edit Info.plist
 const fileHash = createHash('SHA256')
-  .update(
-    getRawHeader('/Applications/Signal.app/Contents/Resources/app.asar')
-      .headerString,
-  )
+  .update(getRawHeader(appAsarPath).headerString)
   .digest('hex');
 
-console.log('Updating hash in Info.plist to bypass asar integrity check...');
-const plistPath = `${patch.resourcesPath}/../Info.plist`;
+console.log('Updating hash in Info.plist for asar integrity check...');
+const plistPath = `${patch.appPath}/Contents/Info.plist`;
 writeFileSync(
   plistPath,
   readFileSync(plistPath, 'utf8').replace(
     /(<key>ElectronAsarIntegrity<\/key><dict><key>Resources\/app.asar<\/key><dict><key>algorithm<\/key><string>SHA256<\/string><key>hash<\/key><string>)[a-f0-9]{64}(<\/string><\/dict><\/dict>)/,
     `$1${fileHash}$2`,
   ),
+);
+
+// Sign app with self-signed certificate
+// https://stackoverflow.com/a/27474942/1268612
+// https://stackoverflow.com/a/54003560/1268612
+console.log('Signing app with self-signed certificate...');
+await execP(
+  `codesign --force --verbose=4 --sign electron-app-patcher-self-signed-cert ${patch.appPath}`,
 );
 
 console.log('Done!');
