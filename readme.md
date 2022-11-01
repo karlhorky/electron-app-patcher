@@ -15,6 +15,8 @@ Electron App Patcher requires a certificate to sign the app again after it has b
 
 ## Usage
 
+Run `yarn patch <patch name>` in the `electron-app-patcher` directory, and it will patch your app based on the transforms in the patch file in the `patches/` directory:
+
 ```bash
 $ yarn patch signal # Or other patches you added in your `patches` folder
 Processing preload.bundle.js...
@@ -24,6 +26,8 @@ Signing app with self-signed certificate...
 Done!
 ✨  Done in 6.66s.
 ```
+
+You will receive a prompt during the app signing to enter your password, since the `codesign` command needs access to the self-signed certificate created in **Setup** above.
 
 After opening the patched app, you may receive a permissions prompt for access to confidential information in your keychain because of the re-signing of the app. Only allow access to information that you believe the app should have access to.
 
