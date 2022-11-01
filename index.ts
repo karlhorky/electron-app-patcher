@@ -65,18 +65,20 @@ if (!existsSync(appAsarPath)) {
 }
 
 if (process.argv[3] === 'restore-backup') {
-  console.log('Restoring backup of app.asar');
+  console.log('Restoring backup of app.asar...');
   createReadStream(appAsarBakPath).pipe(createWriteStream(appAsarPath));
+  console.log('Done!');
   process.exit(0);
 } else if (process.argv[3] === 'delete-backup') {
-  console.log('Deleting backup of app.asar');
+  console.log('Deleting backup of app.asar...');
   rmSync(appAsarBakPath);
+  console.log('Done!');
   process.exit(0);
 }
 
 // Create a backup of the app.asar file if one doesn't already exist.
 if (!existsSync(appAsarBakPath)) {
-  console.log('Creating a backup of app.asar');
+  console.log('Creating a backup of app.asar...');
   createReadStream(appAsarPath).pipe(createWriteStream(appAsarBakPath));
 }
 

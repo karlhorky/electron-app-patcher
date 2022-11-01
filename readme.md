@@ -15,10 +15,11 @@ Electron App Patcher requires a certificate to sign the app again after it has b
 
 ## Usage
 
-Run `yarn patch <patch name>` in the `electron-app-patcher` directory, and it will patch your app based on the transforms in the patch file in the `patches/` directory:
+Run `yarn patch <patch name>` in the `electron-app-patcher` directory, and it will patch your app based on the transforms in the patch file in the `patches/` directory. For example, with the included `patches/signal.ts` patch:
 
 ```bash
-$ yarn patch signal # Or other patches you added in your `patches` folder
+$ yarn patch signal
+Creating a backup of app.asar...
 Processing preload.bundle.js...
 Repacking app.asar to enable patch...
 Updating hash in Info.plist to bypass asar integrity check...
