@@ -9,7 +9,7 @@ export const patchConfig: PatchConfig = {
       filePath: 'preload.bundle.js',
       transform: (content) => {
         return content.replace(
-          /(\}, \[setLarge\]\);\n)( {6}if \(isBlocked \|\| areWePending \|\| messageRequestsEnabled && !acceptedMessageRequest\) \{)/,
+          /(\}, \[setLarge\]\);\n)( {6}if \(isSignalConversation2\) \{)/,
           `$1
 
       // Patch to focus message composition input when key is pressed
