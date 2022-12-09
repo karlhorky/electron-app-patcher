@@ -21,7 +21,6 @@ export const patchConfig: PatchConfig = {
             return;
           }
 
-          inputApiRef.current?.focus();
           const panels = document.querySelectorAll('.conversation .panel');
           if (panels && panels.length > 1) {
             return;
