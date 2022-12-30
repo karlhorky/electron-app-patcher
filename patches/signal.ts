@@ -9,36 +9,36 @@ export const patchConfig: PatchConfig = {
       filePath: 'preload.bundle.js',
       transform: (content) => {
         return content.replace(
-          /(\}, \[setLarge\]\);\n)( {6}if \(isSignalConversation2\) \{)/,
+          /(\}, \[setLarge\]\);\n)( {2,6}if \(isSignalConversation2\) \{)/,
           `$1
 
-      // Patch to focus message composition input when key is pressed
-      (0, import_react.useEffect)(() => {
-        const handler = (e) => {
-          const { key } = e;
+  // Patch to focus message composition input when key is pressed
+  (0, import_react.useEffect)(() => {
+    const handler = (e) => {
+      const { key } = e;
 
-          if (key.length !== 1) {
-            return;
-          }
+      if (key.length !== 1) {
+        return;
+      }
 
-          const panels = document.querySelectorAll('.conversation .panel');
-          if (panels && panels.length > 1) {
-            return;
-          }
+      const panels = document.querySelectorAll('.conversation .panel');
+      if (panels && panels.length > 1) {
+        return;
+      }
 
-          if (document.activeElement?.nodeName.toLowerCase() === 'input') {
-            return;
-          }
+      if (document.activeElement?.nodeName.toLowerCase() === 'input') {
+        return;
+      }
 
-          inputApiRef.current?.focus();
-        };
+      inputApiRef.current?.focus();
+    };
 
-        document.addEventListener('keydown', handler);
-        return () => {
-          document.removeEventListener('keydown', handler);
-        };
-      });
-      // End patch
+    document.addEventListener('keydown', handler);
+    return () => {
+      document.removeEventListener('keydown', handler);
+    };
+  });
+  // End patch
 
 $2`,
         );
