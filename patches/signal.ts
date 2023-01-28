@@ -9,9 +9,8 @@ export const patchConfig: PatchConfig = {
       filePath: 'preload.bundle.js',
       transform: (content) => {
         return content.replace(
-          /(\}, \[setLarge\]\);\n)( {2,6}if \(isSignalConversation2\) \{)/,
-          `$1
-
+          /(^ {2,6}if \(isSignalConversation2\) \{\n {4,8}return \/\* @__PURE__ \*\/)/m,
+          `
   // Patch to focus message composition input when key is pressed
   (0, import_react.useEffect)(() => {
     const handler = (e) => {
@@ -40,7 +39,7 @@ export const patchConfig: PatchConfig = {
   });
   // End patch
 
-$2`,
+$1`,
         );
       },
     },
