@@ -8,15 +8,23 @@ export const patchConfig: PatchConfig = {
     {
       filePath: 'preload.bundle.js',
       transform: (content) => {
-        return content.replace(
-          /(^ {2,6}if \(isSignalConversation2\) \{\n {4,8}return \/\* @__PURE__ \*\/)/m,
-          `
-  // Patch to focus message composition input when key is pressed
-  (0, import_react.useEffect)(() => {
-    const handler = (e) => {
-      const { key } = e;
+        // Match the "(0,sr.useCallback)(()=>{Ir(!1),Kr.current&&Kr.current.submit()},[Kr,Ir]),", which is a minified
+        // version of these lines:
+        // https://github.com/signalapp/Signal-Desktop/blob/9ad9b4da0f4447876490e2dbc462a2b7316dd128/ts/components/CompositionArea.tsx#L334-L339
+        const pattern =
+          /(\(0,([a-zA-Z]{1,3})\.useCallback\)\(\(\)=>\{([a-zA-Z]{1,3})\(!1\),([a-zA-Z]{1,3})\.current&&\4\.current\.submit\(\)\},\[\4,\3\]\)),/;
 
-      if (key.length !== 1) {
+        if (!pattern.test(content)) {
+          throw new Error('Failed to match patch search pattern');
+        }
+
+        return content.replace(
+          pattern,
+          `$1;
+  // Patch to focus message composition input when key is pressed
+  (0, $2.useEffect)(() => {
+    const handler = (keydownEvent) => {
+      if (keydownEvent.key.length !== 1) {
         return;
       }
 
@@ -29,7 +37,7 @@ export const patchConfig: PatchConfig = {
         return;
       }
 
-      inputApiRef.current?.focus();
+      $4.current?.focus();
     };
 
     document.addEventListener('keydown', handler);
@@ -38,8 +46,7 @@ export const patchConfig: PatchConfig = {
     };
   });
   // End patch
-
-$1`,
+let `,
         );
       },
     },
