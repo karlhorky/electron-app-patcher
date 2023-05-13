@@ -6,7 +6,7 @@ Patch an Electron app to apply your own changes (macOS only for now)
 
 Electron App Patcher requires a certificate to sign the app again after it has been patched (see https://stackoverflow.com/a/27474942/1268612).
 
-1. Clone the repo and run `yarn` to install the dependencies
+1. Clone the repo and run `pnpm` to install the dependencies
 2. Open Keychain Access
 3. Open the menu item Keychain Access > Certificate Assistant > Create a Certificate...
 4. For the name, enter `electron-app-patcher-self-signed-cert`
@@ -15,10 +15,10 @@ Electron App Patcher requires a certificate to sign the app again after it has b
 
 ## Usage
 
-Run `yarn patch <patch name>` in the `electron-app-patcher` directory, and it will patch your app based on the transforms in the patch file in the `patches/` directory. For example, with the included `patches/signal.ts` patch:
+Run `pnpm patch <patch name>` in the `electron-app-patcher` directory, and it will patch your app based on the transforms in the patch file in the `patches/` directory. For example, with the included `patches/signal.ts` patch:
 
 ```bash
-$ yarn patch signal
+$ pnpm patch signal
 Creating a backup of app.asar...
 Processing preload.bundle.js...
 Repacking app.asar to enable patch...
@@ -46,13 +46,13 @@ After opening the patched app, you may receive a permissions prompt for access t
 ### Restore `app.asar` backup
 
 ```bash
-$ yarn patch signal restore-backup
+$ pnpm patch signal restore-backup
 ```
 
 ### Delete `app.asar` backup
 
 ```bash
-$ yarn patch signal delete-backup
+$ pnpm patch signal delete-backup
 ```
 
 ## How?
