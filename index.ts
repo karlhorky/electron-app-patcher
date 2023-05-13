@@ -20,7 +20,7 @@ if (process.argv.length < 3) {
   console.log(
     'Please specify a patch name inside the `patches` directory, eg. for patches/signal.ts, run:',
   );
-  console.log('    $ yarn patch signal');
+  console.log('    $ pnpm patch signal');
   process.exit(1);
 }
 
@@ -84,7 +84,7 @@ if (!existsSync(appAsarBakPath)) {
 
 const appPath = `${resourcesPath}/app`;
 
-await execP(`yarn asar extract ${appAsarPath} ${appPath}`);
+await execP(`pnpm asar extract ${appAsarPath} ${appPath}`);
 
 for (const { filePath: relativeFilePath, transform } of patch.transforms) {
   const filePath = `${appPath}/${relativeFilePath}`;
@@ -95,7 +95,7 @@ for (const { filePath: relativeFilePath, transform } of patch.transforms) {
 
 console.log('Repacking app.asar to enable patch...');
 
-await execP(`yarn asar pack ${appPath} ${appAsarPath}`);
+await execP(`pnpm asar pack ${appPath} ${appAsarPath}`);
 
 const fileHash = createHash('SHA256')
   .update(getRawHeader(appAsarPath).headerString)

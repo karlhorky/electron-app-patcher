@@ -1,56 +1,25 @@
 {
   "name": "electron-app-patcher",
   "version": "1.0.0",
-  "main": "index.ts",
   "repository": "git@github.com:karlhorky/electron-app-patcher.git",
-  "author": "Karl Horky <karl.horky@gmail.com>",
   "license": "MIT",
+  "author": "Karl Horky <karl.horky@gmail.com>",
   "type": "module",
-  "engines": {
-    "node": ">=16.18.0"
-  },
+  "main": "index.ts",
   "scripts": {
     "patch": "node --loader ts-node/esm index.ts"
-  },
-  "devDependencies": {
-    "@babel/eslint-parser": "7.19.1",
-    "@next/eslint-plugin-next": "13.0.0",
-    "@types/eslint": "8.4.8",
-    "@types/node": "18.11.7",
-    "@types/react": "18.0.24",
-    "@types/react-dom": "18.0.8",
-    "@typescript-eslint/eslint-plugin": "5.41.0",
-    "@typescript-eslint/parser": "5.41.0",
-    "@upleveled/eslint-config-upleveled": "^3.3.8",
-    "@upleveled/eslint-plugin-upleveled": "2.1.6",
-    "eslint": "8.26.0",
-    "eslint-config-react-app": "7.0.1",
-    "eslint-import-resolver-typescript": "3.5.2",
-    "eslint-plugin-flowtype": "8.0.3",
-    "eslint-plugin-import": "2.26.0",
-    "eslint-plugin-jest": "27.1.3",
-    "eslint-plugin-jsx-a11y": "6.6.1",
-    "eslint-plugin-jsx-expressions": "1.3.1",
-    "eslint-plugin-react": "7.31.10",
-    "eslint-plugin-react-hooks": "4.6.0",
-    "eslint-plugin-security": "1.5.0",
-    "eslint-plugin-sonarjs": "0.16.0",
-    "eslint-plugin-testing-library": "5.9.1",
-    "eslint-plugin-unicorn": "44.0.2",
-    "typescript": "4.8.4"
-  },
-  "resolutions": {
-    "@typescript-eslint/eslint-plugin": "5.41.0",
-    "@typescript-eslint/parser": "5.41.0",
-    "eslint-plugin-import": "2.26.0",
-    "eslint-plugin-jest": "27.1.3",
-    "eslint-plugin-jsx-a11y": "6.6.1",
-    "eslint-plugin-react": "7.31.10",
-    "eslint-plugin-react-hooks": "4.6.0",
-    "@typescript-eslint/utils": "5.41.0"
   },
   "dependencies": {
     "@electron/asar": "3.2.1",
     "ts-node": "10.9.1"
+  },
+  "devDependencies": {
+    "@types/node": "18.11.7",
+    "eslint": "8.26.0",
+    "eslint-config-upleveled": "4.3.2",
+    "typescript": "4.8.4"
+  },
+  "engines": {
+    "node": ">=18.14.1"
   }
 }
