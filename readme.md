@@ -15,10 +15,10 @@ Electron App Patcher requires a certificate to sign the app again after it has b
 
 ## Usage
 
-Run `pnpm patch <patch name>` in the `electron-app-patcher` directory, and it will patch your app based on the transforms in the patch file in the `patches/` directory. For example, with the included `patches/signal.ts` patch:
+Run `pnpm run patch <patch name>` in the `electron-app-patcher` directory, and it will patch your app based on the transforms in the patch file in the `patches/` directory. For example, with the included `patches/signal.ts` patch:
 
 ```bash
-$ pnpm patch signal
+$ pnpm run patch signal
 Creating a backup of app.asar...
 Processing preload.bundle.js...
 Repacking app.asar to enable patch...
@@ -46,13 +46,13 @@ After opening the patched app, you may receive a permissions prompt for access t
 ### Restore `app.asar` backup
 
 ```bash
-$ pnpm patch signal restore-backup
+$ pnpm run patch signal restore-backup
 ```
 
 ### Delete `app.asar` backup
 
 ```bash
-$ pnpm patch signal delete-backup
+$ pnpm run patch signal delete-backup
 ```
 
 ## How?
