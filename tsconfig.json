@@ -5,14 +5,11 @@
     "target": "ESNext"
   },
   "include": [
-    "**/.eslintrc.cjs",
     "**/*.ts",
     "**/*.tsx",
     "**/*.js",
     "**/*.jsx",
     "**/*.cjs",
-    "**/*.mjs",
-    ".next/types/**/*.ts",
-    "next.d.ts"
+    "**/*.mjs"
   ]
 }
