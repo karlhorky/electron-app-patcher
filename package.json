@@ -16,11 +16,11 @@
   "devDependencies": {
     "@types/node": "20.12.12",
     "eslint": "8.57.0",
-    "eslint-config-upleveled": "8.1.0",
+    "eslint-config-upleveled": "8.1.5",
     "typescript": "5.4.5"
   },
   "engines": {
     "node": ">=20.10.0"
   },
-  "packageManager": "pnpm@9.1.1+sha256.9551e803dcb7a1839fdf5416153a844060c7bce013218ce823410532504ac10b"
+  "packageManager": "pnpm@9.1.2"
 }
