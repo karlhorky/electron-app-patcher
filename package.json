@@ -15,8 +15,8 @@
   },
   "devDependencies": {
     "@types/node": "20.14.12",
-    "eslint": "9.7.0",
-    "eslint-config-upleveled": "8.6.13",
+    "eslint": "9.8.0",
+    "eslint-config-upleveled": "8.6.14",
     "typescript": "5.5.4"
   },
   "engines": {
