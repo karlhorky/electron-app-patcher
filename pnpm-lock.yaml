@@ -13,17 +13,17 @@ importers:
         version: 3.2.13
       ts-node:
         specifier: 10.9.2
-        version: 10.9.2(@types/node@22.7.5)(typescript@5.6.3)
+        version: 10.9.2(@types/node@22.7.6)(typescript@5.6.3)
     devDependencies:
       '@types/node':
-        specifier: 22.7.5
-        version: 22.7.5
+        specifier: 22.7.6
+        version: 22.7.6
       eslint:
         specifier: 9.12.0
         version: 9.12.0
       eslint-config-upleveled:
-        specifier: 8.7.3
-        version: 8.7.3(@babel/core@7.21.8)(@types/eslint@8.56.10)(@types/node@22.7.5)(@types/react-dom@18.3.0)(@types/react@18.3.1)(eslint-plugin-import@2.29.1(@typescript-eslint/parser@8.8.1(eslint@9.12.0)(typescript@5.6.3))(eslint@9.12.0))(eslint@9.12.0)(globals@15.9.0)(typescript@5.6.3)
+        specifier: 8.8.0
+        version: 8.8.0(@babel/core@7.21.8)(@types/eslint@8.56.10)(@types/node@22.7.6)(@types/react-dom@18.3.0)(@types/react@18.3.1)(eslint-plugin-import@2.29.1(@typescript-eslint/parser@8.8.1(eslint@9.12.0)(typescript@5.6.3))(eslint@9.12.0))(eslint@9.12.0)(globals@15.9.0)(typescript@5.6.3)
       typescript:
         specifier: 5.6.3
         version: 5.6.3
@@ -309,8 +309,8 @@ packages:
   '@types/minimatch@5.1.2':
     resolution: {integrity: sha512-K0VQKziLUWkVKiRVrx4a40iPaxTUefQmjtkQofBkYRcoaaL/8rhwDWww9qWbrgicNOgnpIsMxyNIUM4+n6dUIA==}
 
-  '@types/node@22.7.5':
-    resolution: {integrity: sha512-jML7s2NAzMWc//QSJ1a3prpk78cOPchGvXJsC3C6R6PSMoooztvRVQEz89gmBTBY1SPMaqo5teB4uNHPdetShQ==}
+  '@types/node@22.7.6':
+    resolution: {integrity: sha512-/d7Rnj0/ExXDMcioS78/kf1lMzYk4BZV8MZGTBKzTGZ6/406ukkbYlIsZmMPhcR5KlkunDHQLrtAVmSq7r+mSw==}
 
   '@types/normalize-package-data@2.4.1':
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
@@ -737,15 +737,15 @@ packages:
     peerDependencies:
       eslint: ^9.5.0
 
-  eslint-config-upleveled@8.7.3:
-    resolution: {integrity: sha512-JnOFPjRTQiW/JW/QZZ7yxfUcT2R8zW+UOTVml3+5cEtnwFv4LUUeaOGquE90L4zOx+59+1vL37rt0VdZetmZBQ==}
+  eslint-config-upleveled@8.8.0:
+    resolution: {integrity: sha512-B5JWKaigin2yIrxKHXT6Rhl3bxWyI6d1tKku3yRSgwtUqPxfsnqDv/FyT5Nc+TbUu2kKFxQkbfv8+ISiwQsfXw==}
     engines: {node: '>=20.9.0'}
     hasBin: true
     peerDependencies:
       '@types/eslint': ^9.6.1
       '@types/node': '>=22.7.5'
       '@types/react': ^18.3.11
-      '@types/react-dom': ^18.3.0
+      '@types/react-dom': ^18.3.1
       eslint: ^9.12.0
       globals: ^15.11.0
       typescript: ^5.6.3
@@ -809,8 +809,8 @@ packages:
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8 || ^9
 
-  eslint-plugin-react-hooks@5.1.0-rc-fb9a90fa48-20240614:
-    resolution: {integrity: sha512-xsiRwaDNF5wWNC4ZHLut+x/YcAxksUd9Rizt7LaEn3bV8VyYRpXnRJQlLOfYaVy9esk4DFP4zPPnoNVjq5Gc0w==}
+  eslint-plugin-react-hooks@5.0.0:
+    resolution: {integrity: sha512-hIOwI+5hYGpJEc4uPRmz2ulCjAGD/N13Lukkh8cLV0i2IRk/bdZDYjgLVHj+U9Z704kLIdIO6iueGvxNur0sgw==}
     engines: {node: '>=10'}
     peerDependencies:
       eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0 || ^9.0.0
@@ -2231,7 +2231,7 @@ snapshots:
   '@types/glob@7.2.0':
     dependencies:
       '@types/minimatch': 5.1.2
-      '@types/node': 22.7.5
+      '@types/node': 22.7.6
 
   '@types/json-schema@7.0.15': {}
 
@@ -2240,7 +2240,7 @@ snapshots:
 
   '@types/minimatch@5.1.2': {}
 
-  '@types/node@22.7.5':
+  '@types/node@22.7.6':
     dependencies:
       undici-types: 6.19.8
 
@@ -2796,13 +2796,13 @@ snapshots:
       eslint: 9.12.0
       find-up-simple: 1.0.0
 
-  eslint-config-upleveled@8.7.3(@babel/core@7.21.8)(@types/eslint@8.56.10)(@types/node@22.7.5)(@types/react-dom@18.3.0)(@types/react@18.3.1)(eslint-plugin-import@2.29.1(@typescript-eslint/parser@8.8.1(eslint@9.12.0)(typescript@5.6.3))(eslint@9.12.0))(eslint@9.12.0)(globals@15.9.0)(typescript@5.6.3):
+  eslint-config-upleveled@8.8.0(@babel/core@7.21.8)(@types/eslint@8.56.10)(@types/node@22.7.6)(@types/react-dom@18.3.0)(@types/react@18.3.1)(eslint-plugin-import@2.29.1(@typescript-eslint/parser@8.8.1(eslint@9.12.0)(typescript@5.6.3))(eslint@9.12.0))(eslint@9.12.0)(globals@15.9.0)(typescript@5.6.3):
     dependencies:
       '@babel/eslint-parser': 7.25.8(@babel/core@7.21.8)(eslint@9.12.0)
       '@eslint/compat': 1.2.0(eslint@9.12.0)
       '@next/eslint-plugin-next': 14.2.15
       '@types/eslint': 8.56.10
-      '@types/node': 22.7.5
+      '@types/node': 22.7.6
       '@types/react': 18.3.1
       '@types/react-dom': 18.3.0
       '@typescript-eslint/eslint-plugin': 8.8.1(@typescript-eslint/parser@8.8.1(eslint@9.12.0)(typescript@5.6.3))(eslint@9.12.0)(typescript@5.6.3)
@@ -2813,7 +2813,7 @@ snapshots:
       eslint-plugin-import-x: 4.3.1(eslint@9.12.0)(typescript@5.6.3)
       eslint-plugin-jsx-a11y: 6.10.0(eslint@9.12.0)
       eslint-plugin-react: 7.37.1(eslint@9.12.0)
-      eslint-plugin-react-hooks: 5.1.0-rc-fb9a90fa48-20240614(eslint@9.12.0)
+      eslint-plugin-react-hooks: 5.0.0(eslint@9.12.0)
       eslint-plugin-react-x: 1.14.3(eslint@9.12.0)(typescript@5.6.3)
       eslint-plugin-security: 3.0.1
       eslint-plugin-sonarjs: 1.0.4(eslint@9.12.0)
@@ -2947,7 +2947,7 @@ snapshots:
       safe-regex-test: 1.0.3
       string.prototype.includes: 2.0.0
 
-  eslint-plugin-react-hooks@5.1.0-rc-fb9a90fa48-20240614(eslint@9.12.0):
+  eslint-plugin-react-hooks@5.0.0(eslint@9.12.0):
     dependencies:
       eslint: 9.12.0
 
@@ -3942,14 +3942,14 @@ snapshots:
       minimatch: 10.0.1
       typescript: 5.6.3
 
-  ts-node@10.9.2(@types/node@22.7.5)(typescript@5.6.3):
+  ts-node@10.9.2(@types/node@22.7.6)(typescript@5.6.3):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       '@tsconfig/node10': 1.0.9
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
-      '@types/node': 22.7.5
+      '@types/node': 22.7.6
       acorn: 8.12.1
       acorn-walk: 8.2.0
       arg: 4.1.3
