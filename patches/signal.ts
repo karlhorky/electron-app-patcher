@@ -15,7 +15,10 @@ export const patchConfig: PatchConfig = {
           /(\(0,([a-zA-Z$_]{1,3})\.useCallback\)\(\(\)=>\{([a-zA-Z$]{1,3})\(!1\),([a-zA-Z$_]{1,3})\.current&&\4\.current\.submit\(\)\},\[\4,\3\]\)),/;
 
         if (!pattern.test(content)) {
-          throw new Error('Failed to match patch search pattern');
+          throw new Error(`Failed to match patch search pattern, open preload.bundle.js with:
+
+  code /Applications/Signal.app/Contents/Resources/app/preload.bundle.js
+`);
         }
 
         return content.replace(
