@@ -12,7 +12,7 @@ export const patchConfig: PatchConfig = {
         // version of these lines:
         // https://github.com/signalapp/Signal-Desktop/blob/9ad9b4da0f4447876490e2dbc462a2b7316dd128/ts/components/CompositionArea.tsx#L334-L339
         const pattern =
-          /(\(0,([a-zA-Z$_]{1,3})\.useCallback\)\(\(\)=>\{([a-zA-Z$]{1,3})\(!1\),([a-zA-Z$_]{1,3})\.current&&\4\.current\.submit\(\)\},\[\4,\3\]\)),/;
+          /(\(0,([a-zA-Z$_]{1,3})\.useCallback\)\(\(\)=>\{([a-zA-Z$_]{1,3})\(!1\),([a-zA-Z$_]{1,3})\.current&&\4\.current\.submit\(\)\},\[\4,\3\]\)),/;
 
         if (!pattern.test(content)) {
           throw new Error(`Failed to match patch search pattern, open preload.bundle.js with:
