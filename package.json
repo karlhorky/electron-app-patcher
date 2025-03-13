@@ -14,13 +14,13 @@
     "ts-node": "10.9.2"
   },
   "devDependencies": {
-    "@types/node": "22.13.9",
-    "eslint": "9.21.0",
+    "@types/node": "22.13.10",
+    "eslint": "9.22.0",
     "eslint-config-upleveled": "9.2.1",
     "typescript": "5.8.2"
   },
   "engines": {
     "node": ">=20.10.0"
   },
-  "packageManager": "pnpm@10.6.0+sha512.df0136e797db0cfa7ec1084e77f3bdf81bacbae9066832fbf95cba4c2140ad05e64f316cde51ce3f99ea00a91ffc702d6aedd3c0f450f895e3e7c052fe573cd8"
+  "packageManager": "pnpm@10.6.3+sha512.bb45e34d50a9a76e858a95837301bfb6bd6d35aea2c5d52094fa497a467c43f5c440103ce2511e9e0a2f89c3d6071baac3358fc68ac6fb75e2ceb3d2736065e6"
 }
