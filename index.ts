@@ -89,8 +89,8 @@ await execP(`pnpm asar extract ${appAsarPath} ${appPath}`);
 for (const { filePath: relativeFilePath, transform } of patch.transforms) {
   const filePath = `${appPath}/${relativeFilePath}`;
   console.log(`Processing ${relativeFilePath}...`);
-  const newContents = transform(readFileSync(filePath, 'utf8'));
-  writeFileSync(filePath, newContents);
+  const newContent = transform(readFileSync(filePath, 'utf8'));
+  writeFileSync(filePath, newContent);
 }
 
 console.log('Repacking app.asar to enable patch...');
@@ -103,12 +103,18 @@ const fileHash = createHash('SHA256')
 
 console.log('Updating hash in Info.plist for asar integrity check...');
 const plistPath = `${patch.appPath}/Contents/Info.plist`;
+const plistContent = readFileSync(plistPath, 'utf8');
+const asarIntegrityRegex =
+  /(<key>ElectronAsarIntegrity<\/key>\s*<dict>\s*<key>Resources\/app.asar<\/key>\s*<dict>\s*<key>algorithm<\/key>\s*<string>SHA256<\/string>\s*<key>hash<\/key>\s*<string>)[a-f0-9]{64}(<\/string>\s*<\/dict>\s*<\/dict>)/;
+if (!asarIntegrityRegex.test(plistContent)) {
+  throw new Error(`Failed to match ElectronAsarIntegrity key search pattern, open Info.plist with:
+
+  code ${plistPath}
+`);
+}
 writeFileSync(
   plistPath,
-  readFileSync(plistPath, 'utf8').replace(
-    /(<key>ElectronAsarIntegrity<\/key><dict><key>Resources\/app.asar<\/key><dict><key>algorithm<\/key><string>SHA256<\/string><key>hash<\/key><string>)[a-f0-9]{64}(<\/string><\/dict><\/dict>)/,
-    `$1${fileHash}$2`,
-  ),
+  plistContent.replace(asarIntegrityRegex, `$1${fileHash}$2`),
 );
 
 // Sign app with self-signed certificate
