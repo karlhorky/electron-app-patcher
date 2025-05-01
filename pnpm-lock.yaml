@@ -13,17 +13,17 @@ importers:
         version: 3.4.1
       ts-node:
         specifier: 10.9.2
-        version: 10.9.2(@types/node@22.15.0)(typescript@5.8.3)
+        version: 10.9.2(@types/node@22.15.3)(typescript@5.8.3)
     devDependencies:
       '@types/node':
-        specifier: 22.15.0
-        version: 22.15.0
+        specifier: 22.15.3
+        version: 22.15.3
       eslint:
         specifier: 9.25.1
         version: 9.25.1
       eslint-config-upleveled:
         specifier: 9.2.3
-        version: 9.2.3(@babel/core@7.26.10)(@types/node@22.15.0)(@types/react-dom@19.0.4(@types/react@19.0.12))(@types/react@19.0.12)(eslint@9.25.1)(globals@15.15.0)(typescript@5.8.3)
+        version: 9.2.3(@babel/core@7.26.10)(@types/node@22.15.3)(@types/react-dom@19.0.4(@types/react@19.0.12))(@types/react@19.0.12)(eslint@9.25.1)(globals@15.15.0)(typescript@5.8.3)
       typescript:
         specifier: 5.8.3
         version: 5.8.3
@@ -318,8 +318,8 @@ packages:
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
 
-  '@types/node@22.15.0':
-    resolution: {integrity: sha512-99S8dWD2DkeE6PBaEDw+In3aar7hdoBvjyJMR6vaKBTzpvR0P00ClzJMOoVrj9D2+Sy/YCwACYHnBTpMhg1UCA==}
+  '@types/node@22.15.3':
+    resolution: {integrity: sha512-lX7HFZeHf4QG/J7tBZqrCAXwz9J5RD56Y6MpP0eJkka8p+K0RY/yBTW7CYFJ4VGCclxqOLKmiGP5juQc6MKgcw==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -2189,7 +2189,7 @@ snapshots:
 
   '@types/json-schema@7.0.15': {}
 
-  '@types/node@22.15.0':
+  '@types/node@22.15.3':
     dependencies:
       undici-types: 6.21.0
 
@@ -2734,12 +2734,12 @@ snapshots:
       '@eslint/compat': 1.2.7(eslint@9.25.1)
       eslint: 9.25.1
 
-  eslint-config-upleveled@9.2.3(@babel/core@7.26.10)(@types/node@22.15.0)(@types/react-dom@19.0.4(@types/react@19.0.12))(@types/react@19.0.12)(eslint@9.25.1)(globals@15.15.0)(typescript@5.8.3):
+  eslint-config-upleveled@9.2.3(@babel/core@7.26.10)(@types/node@22.15.3)(@types/react-dom@19.0.4(@types/react@19.0.12))(@types/react@19.0.12)(eslint@9.25.1)(globals@15.15.0)(typescript@5.8.3):
     dependencies:
       '@babel/eslint-parser': 7.26.10(@babel/core@7.26.10)(eslint@9.25.1)
       '@eslint/compat': 1.2.7(eslint@9.25.1)
       '@next/eslint-plugin-next': 15.2.3
-      '@types/node': 22.15.0
+      '@types/node': 22.15.3
       '@types/react': 19.0.12
       '@types/react-dom': 19.0.4(@types/react@19.0.12)
       '@typescript-eslint/eslint-plugin': 8.27.0(@typescript-eslint/parser@8.27.0(eslint@9.25.1)(typescript@5.8.3))(eslint@9.25.1)(typescript@5.8.3)
@@ -3824,14 +3824,14 @@ snapshots:
     dependencies:
       typescript: 5.8.3
 
-  ts-node@10.9.2(@types/node@22.15.0)(typescript@5.8.3):
+  ts-node@10.9.2(@types/node@22.15.3)(typescript@5.8.3):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       '@tsconfig/node10': 1.0.11
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
-      '@types/node': 22.15.0
+      '@types/node': 22.15.3
       acorn: 8.14.1
       acorn-walk: 8.3.4
       arg: 4.1.3
