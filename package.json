@@ -14,8 +14,8 @@
     "ts-node": "10.9.2"
   },
   "devDependencies": {
-    "@types/node": "22.15.3",
-    "eslint": "9.25.1",
+    "@types/node": "22.15.17",
+    "eslint": "9.26.0",
     "eslint-config-upleveled": "9.2.3",
     "typescript": "5.8.3"
   },
