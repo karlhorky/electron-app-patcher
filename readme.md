@@ -11,9 +11,10 @@ Electron App Patcher requires a certificate to sign the app again after it has b
 3. Open the menu item Keychain Access > Certificate Assistant > Create a Certificate...
 4. For the name, enter `electron-app-patcher-self-signed-cert`
 5. Under "Certificate Type", select "Code Signing"
-6. Check the box "Let me override defaults" and click "Continue"
-7. In "Validity Period (days)", enter `7300`, the highest possible value
-8. Create the certificate
+6. Check the box "Let me override defaults" and select "Continue"
+7. In "Validity Period (days)", enter `7300` (the highest possible value) and select "Continue"
+8. For the rest of the steps, leave all default options and select "Continue" 
+9. Create the certificate
 
 ## Usage
 
