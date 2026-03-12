@@ -10,11 +10,11 @@
     "patch": "node --loader ts-node/esm index.ts"
   },
   "dependencies": {
-    "@electron/asar": "4.0.1",
+    "@electron/asar": "4.1.0",
     "ts-node": "10.9.2"
   },
   "devDependencies": {
-    "@types/node": "25.3.2",
+    "@types/node": "25.3.3",
     "eslint": "10.0.2",
     "eslint-config-upleveled": "9.4.8",
     "typescript": "5.9.3"
