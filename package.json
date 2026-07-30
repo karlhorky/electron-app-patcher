@@ -10,7 +10,7 @@
     "patch": "node --loader ts-node/esm index.ts"
   },
   "dependencies": {
-    "@electron/asar": "4.2.0",
+    "@electron/asar": "4.2.1",
     "ts-node": "10.9.2"
   },
   "devDependencies": {
