@@ -1,4 +1,9 @@
-# Prevents installation of packages newer than 7 days
+# Allow build scripts for trusted dependencies
+# - https://pnpm.io/settings#allowbuilds
+allowBuilds:
+  unrs-resolver: false
+
+# Prevent installation of packages newer than 7 days
 # to mitigate supply chain risks
 # - https://pnpm.io/settings#minimumreleaseage
 minimumReleaseAge: 10080
@@ -6,7 +11,3 @@ minimumReleaseAgeExclude:
   - '@upleveled/*'
   - eslint-config-upleveled
   - stylelint-config-upleveled
-
-# Fail on pnpm ignored build scripts
-# - https://pnpm.io/settings#strictdepbuilds
-strictDepBuilds: true
