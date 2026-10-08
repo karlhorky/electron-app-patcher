@@ -16,7 +16,7 @@
   "devDependencies": {
     "@types/node": "26.6.3",
     "eslint": "10.11.0",
-    "eslint-config-upleveled": "10.0.4",
+    "eslint-config-upleveled": "11.0.1",
     "typescript": "5.9.3"
   },
   "devEngines": {
