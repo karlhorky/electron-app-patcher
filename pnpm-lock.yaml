@@ -208,21 +208,21 @@ importers:
   .:
     dependencies:
       '@electron/asar':
-        specifier: 4.3.0
-        version: 4.3.0
+        specifier: 4.3.1
+        version: 4.3.1
       ts-node:
         specifier: 10.9.2
-        version: 10.9.2(@types/node@26.6.2)(typescript@5.9.3)
+        version: 10.9.2(@types/node@26.6.3)(typescript@5.9.3)
     devDependencies:
       '@types/node':
-        specifier: 26.6.2
-        version: 26.6.2
+        specifier: 26.6.3
+        version: 26.6.3
       eslint:
         specifier: 10.11.0
         version: 10.11.0
       eslint-config-upleveled:
         specifier: 10.0.4
-        version: 10.0.4(@types/node@26.6.2)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(@typescript-eslint/utils@8.69.0(eslint@10.11.0)(typescript@5.9.3))(eslint-import-resolver-node@0.3.9)(eslint@10.11.0)(globals@17.12.0)(typescript@5.9.3)
+        version: 10.0.4(@types/node@26.6.3)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(@typescript-eslint/utils@8.69.0(eslint@10.11.0)(typescript@5.9.3))(eslint-import-resolver-node@0.3.9)(eslint@10.11.0)(globals@17.12.0)(typescript@5.9.3)
       typescript:
         specifier: 5.9.3
         version: 5.9.3
@@ -310,8 +310,8 @@ packages:
     resolution: {integrity: sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==}
     engines: {node: '>=12'}
 
-  '@electron/asar@4.3.0':
-    resolution: {integrity: sha512-k/FFC/NQoTykGBi/Ga4L4KorsAKDdkK0LfNVG90eUG6vPVpJaL3iR9V1ZLbzBAF3QpojK5DcaGOdQOheKZv4JQ==}
+  '@electron/asar@4.3.1':
+    resolution: {integrity: sha512-6pI64z/tMSBkUTZLQFYhs2YiB7fS9sKA6gy7/2nH1Ju7GGwT32UPsj4Mxsws5NMmtR6C0zYdXVxEU/rGqJRCJA==}
     engines: {node: '>=22.12.0'}
     hasBin: true
 
@@ -498,8 +498,8 @@ packages:
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
 
-  '@types/node@26.6.2':
-    resolution: {integrity: sha512-X1P21scMv4zGKLYqjdGjaKa7COa0RKVYYZZN/NfvLQ1JegxFhdhpZG/Lyn8AXx6CDUavKAd11v6BvfpkDByK8g==}
+  '@types/node@26.6.3':
+    resolution: {integrity: sha512-dsqMQQoeTLqu9wynDD00q573mNzso3IdQOAfHRJqLCcmCFPoGo9A1bDpUcv/9tnKpErQWv9uKeGfl37EIS02Yg==}
 
   '@types/react-dom@19.3.0':
     resolution: {integrity: sha512-ZI7bU42mZXXKHn/qNLEw2IrbiINU7X5+vfgdixBHkCNpYWXjKgfQ/P+uyGb5CjOLB9UcnTeg3rylQtV2hym44Q==}
@@ -2033,7 +2033,7 @@ snapshots:
     dependencies:
       '@jridgewell/trace-mapping': 0.3.9
 
-  '@electron/asar@4.3.0':
+  '@electron/asar@4.3.1':
     dependencies:
       glob: 13.0.6
       minimatch: 10.2.6
@@ -2249,7 +2249,7 @@ snapshots:
 
   '@types/json-schema@7.0.15': {}
 
-  '@types/node@26.6.2':
+  '@types/node@26.6.3':
     dependencies:
       undici-types: 8.9.0
 
@@ -2726,12 +2726,12 @@ snapshots:
       '@eslint/compat': 2.1.1(eslint@10.11.0)
       eslint: 10.11.0
 
-  eslint-config-upleveled@10.0.4(@types/node@26.6.2)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(@typescript-eslint/utils@8.69.0(eslint@10.11.0)(typescript@5.9.3))(eslint-import-resolver-node@0.3.9)(eslint@10.11.0)(globals@17.12.0)(typescript@5.9.3):
+  eslint-config-upleveled@10.0.4(@types/node@26.6.3)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(@typescript-eslint/utils@8.69.0(eslint@10.11.0)(typescript@5.9.3))(eslint-import-resolver-node@0.3.9)(eslint@10.11.0)(globals@17.12.0)(typescript@5.9.3):
     dependencies:
       '@eslint/compat': 2.1.1(eslint@10.11.0)
       '@next/eslint-plugin-next': 16.3.4(eslint@10.11.0)
       '@stylistic/eslint-plugin': 5.10.0(eslint@10.11.0)
-      '@types/node': 26.6.2
+      '@types/node': 26.6.3
       '@types/react': 19.3.0
       '@types/react-dom': 19.3.0(@types/react@19.3.0)
       '@typescript-eslint/eslint-plugin': 8.69.0(@typescript-eslint/parser@8.69.0(eslint@10.11.0)(typescript@5.9.3))(eslint@10.11.0)(typescript@5.9.3)
@@ -3724,14 +3724,14 @@ snapshots:
       picomatch: 4.0.3
       typescript: 5.9.3
 
-  ts-node@10.9.2(@types/node@26.6.2)(typescript@5.9.3):
+  ts-node@10.9.2(@types/node@26.6.3)(typescript@5.9.3):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       '@tsconfig/node10': 1.0.11
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
-      '@types/node': 26.6.2
+      '@types/node': 26.6.3
       acorn: 8.16.0
       acorn-walk: 8.3.4
       arg: 4.1.3
