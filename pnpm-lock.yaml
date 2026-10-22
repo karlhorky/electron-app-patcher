@@ -171,17 +171,17 @@ importers:
         version: 4.3.1
       ts-node:
         specifier: 10.9.2
-        version: 10.9.2(@types/node@26.6.4)(typescript@5.9.3)
+        version: 10.9.2(@types/node@26.6.5)(typescript@5.9.3)
     devDependencies:
       '@types/node':
-        specifier: 26.6.4
-        version: 26.6.4
+        specifier: 26.6.5
+        version: 26.6.5
       eslint:
         specifier: 10.12.0
         version: 10.12.0
       eslint-config-upleveled:
         specifier: 11.0.1
-        version: 11.0.1(@types/node@26.6.4)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(@typescript-eslint/utils@8.71.1(eslint@10.12.0)(typescript@5.9.3))(eslint-import-resolver-node@0.3.9)(eslint@10.12.0)(globals@17.12.0)(typescript@5.9.3)
+        version: 11.0.1(@types/node@26.6.5)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(@typescript-eslint/utils@8.71.1(eslint@10.12.0)(typescript@5.9.3))(eslint-import-resolver-node@0.3.9)(eslint@10.12.0)(globals@17.12.0)(typescript@5.9.3)
       typescript:
         specifier: 5.9.3
         version: 5.9.3
@@ -477,8 +477,8 @@ packages:
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
 
-  '@types/node@26.6.4':
-    resolution: {integrity: sha512-ldVPDCzj7fsaGZrLB0NuHuTvJcsNasysBAqMolr/cgxrLd1xbqxIr3XJiPnHHJUCxj5sNF1vnRj9aWnrVh5Jcg==}
+  '@types/node@26.6.5':
+    resolution: {integrity: sha512-uMzsv9stDdofIZBx4UGh4Z9ZgXnGC9seRDscilBcTHAeOFk67MZg/k9bWVfO+bk4qZmG+l52hRnLwUiH2LnJTg==}
 
   '@types/react-dom@19.3.0':
     resolution: {integrity: sha512-ZI7bU42mZXXKHn/qNLEw2IrbiINU7X5+vfgdixBHkCNpYWXjKgfQ/P+uyGb5CjOLB9UcnTeg3rylQtV2hym44Q==}
@@ -1872,7 +1872,7 @@ snapshots:
 
   '@types/json-schema@7.0.15': {}
 
-  '@types/node@26.6.4':
+  '@types/node@26.6.5':
     dependencies:
       undici-types: 8.9.0
 
@@ -2221,13 +2221,13 @@ snapshots:
       '@eslint/compat': 2.1.1(eslint@10.12.0)
       eslint: 10.12.0
 
-  eslint-config-upleveled@11.0.1(@types/node@26.6.4)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(@typescript-eslint/utils@8.71.1(eslint@10.12.0)(typescript@5.9.3))(eslint-import-resolver-node@0.3.9)(eslint@10.12.0)(globals@17.12.0)(typescript@5.9.3):
+  eslint-config-upleveled@11.0.1(@types/node@26.6.5)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(@typescript-eslint/utils@8.71.1(eslint@10.12.0)(typescript@5.9.3))(eslint-import-resolver-node@0.3.9)(eslint@10.12.0)(globals@17.12.0)(typescript@5.9.3):
     dependencies:
       '@eslint-react/kit': 5.20.8(eslint@10.12.0)(typescript@5.9.3)
       '@eslint/compat': 2.1.1(eslint@10.12.0)
       '@next/eslint-plugin-next': 16.3.6(eslint@10.12.0)
       '@stylistic/eslint-plugin': 5.10.0(eslint@10.12.0)
-      '@types/node': 26.6.4
+      '@types/node': 26.6.5
       '@types/react': 19.3.0
       '@types/react-dom': 19.3.0(@types/react@19.3.0)
       '@typescript-eslint/eslint-plugin': 8.70.1(@typescript-eslint/parser@8.70.1(eslint@10.12.0)(typescript@5.9.3))(eslint@10.12.0)(typescript@5.9.3)
@@ -2838,14 +2838,14 @@ snapshots:
     dependencies:
       typescript: 5.9.3
 
-  ts-node@10.9.2(@types/node@26.6.4)(typescript@5.9.3):
+  ts-node@10.9.2(@types/node@26.6.5)(typescript@5.9.3):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       '@tsconfig/node10': 1.0.11
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
-      '@types/node': 26.6.4
+      '@types/node': 26.6.5
       acorn: 8.16.0
       acorn-walk: 8.3.4
       arg: 4.1.3
