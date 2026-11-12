@@ -10,7 +10,7 @@ export const patchConfig: PatchConfig = {
     {
       id: 'signal-focus-message-composition-input',
       filePath: 'bundles/preload/main.js',
-      transform: (content, id) => {
+      transform(content) {
         // Match the
         // "(0,sr.useCallback)(()=>{Ir(!1),Kr.current&&Kr.current.submit()},[Kr,Ir]),",
         // which is a minified version of these lines:
@@ -28,7 +28,7 @@ export const patchConfig: PatchConfig = {
         return content.replace(
           pattern,
           `$1;
-  ${getPatchMarker(id)}
+  ${getPatchMarker(this.id)}
   // Patch to focus message composition input when key is pressed
   (0, $2.useEffect)(() => {
     const handler = (keydownEvent) => {
