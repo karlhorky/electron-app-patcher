@@ -7,7 +7,7 @@
   "type": "module",
   "main": "index.ts",
   "scripts": {
-    "patch": "node --loader ts-node/esm index.ts"
+    "patch": "node --import 'data:text/javascript,import { register } from \"node:module\"; import { pathToFileURL } from \"node:url\"; register(\"ts-node/esm\", pathToFileURL(\"./\"));' index.ts"
   },
   "dependencies": {
     "@electron/asar": "4.3.1",
