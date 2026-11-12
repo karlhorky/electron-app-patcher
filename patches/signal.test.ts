@@ -15,7 +15,7 @@ await test('Patch supported Signal bundles', () => {
   assert.ok(patched.includes(getPatchIdComment(patchTransform.id)));
 });
 
-await test('Reject unsupported Signal bundles', () => {
+await test('Do not patch unsupported Signal bundles', () => {
   assert.throws(() => patchTransform.transform('unsupported bundle'), {
     message: /Failed to match patch search pattern/,
   });
