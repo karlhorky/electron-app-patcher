@@ -13,6 +13,7 @@ import {
 } from 'node:fs';
 import { promisify } from 'node:util';
 import { getRawHeader } from '@electron/asar';
+import { getPatchIdComment } from './util/patches.ts';
 
 const execP = promisify(exec);
 
@@ -34,6 +35,7 @@ if (!existsSync(patchFile)) {
 export type PatchConfig = {
   appPath: string;
   transforms: {
+    id: string;
     filePath: string;
     transform: (content: string) => string;
   }[];
@@ -86,11 +88,36 @@ const appPath = `${resourcesPath}/app`;
 
 await execP(`pnpm asar extract ${appAsarPath} ${appPath}`);
 
-for (const { filePath: relativeFilePath, transform } of patch.transforms) {
-  const filePath = `${appPath}/${relativeFilePath}`;
-  console.log(`Processing ${relativeFilePath}...`);
-  const newContent = transform(readFileSync(filePath, 'utf8'));
+let isAnyPatchApplied = false;
+
+for (const patchTransform of patch.transforms) {
+  console.log(`Processing ${patchTransform.filePath}...`);
+
+  const filePath = `${appPath}/${patchTransform.filePath}`;
+  const content = readFileSync(filePath, 'utf8');
+
+  if (content.includes(getPatchIdComment(patchTransform.id))) {
+    console.log(
+      `Patch ${patchTransform.id} already applied to ${patchTransform.filePath}`,
+    );
+    continue;
+  }
+
+  const newContent = patchTransform.transform(content);
+
+  if (!newContent.includes(getPatchIdComment(patchTransform.id))) {
+    throw new Error(
+      `Transform ${patchTransform.id} did not insert its patch marker`,
+    );
+  }
+
+  isAnyPatchApplied = true;
   writeFileSync(filePath, newContent);
+}
+
+if (!isAnyPatchApplied) {
+  console.log('All patches already applied');
+  process.exit(0);
 }
 
 console.log('Repacking app.asar to enable patch...');

@@ -1,3 +1,4 @@
+import { getPatchIdComment } from '../util/patches.ts';
 import type { PatchConfig } from '../index.ts';
 
 export const patchConfig: PatchConfig = {
@@ -7,8 +8,9 @@ export const patchConfig: PatchConfig = {
     // pressed PR:
     // - https://github.com/signalapp/Signal-Desktop/pull/4998
     {
+      id: 'signal-focus-message-composition-input',
       filePath: 'bundles/preload/main.js',
-      transform: (content) => {
+      transform(content) {
         // Match the
         // "(0,sr.useCallback)(()=>{Ir(!1),Kr.current&&Kr.current.submit()},[Kr,Ir]),",
         // which is a minified version of these lines:
@@ -26,6 +28,7 @@ export const patchConfig: PatchConfig = {
         return content.replace(
           pattern,
           `$1;
+  ${getPatchIdComment(this.id)}
   // Patch to focus message composition input when key is pressed
   (0, $2.useEffect)(() => {
     const handler = (keydownEvent) => {
