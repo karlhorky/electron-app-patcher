@@ -31,6 +31,8 @@ Done!
 ✨  Done in 6.66s.
 ```
 
+Running the same patch again reports `All patches already applied` and exits successfully without repacking or signing the app again. Signal patches created by earlier versions are also recognized by their existing patch comments.
+
 You will receive a prompt during the app signing to enter your password, since the `codesign` command needs access to the self-signed certificate created in **Setup** above.
 
 After opening the patched app, you may receive a permissions prompt for access to confidential information in your keychain because of the re-signing of the app. Only allow access to information that you believe the app should have access to.

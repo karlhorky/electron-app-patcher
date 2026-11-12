@@ -86,11 +86,24 @@ const appPath = `${resourcesPath}/app`;
 
 await execP(`pnpm asar extract ${appAsarPath} ${appPath}`);
 
+let changed = false;
+
 for (const { filePath: relativeFilePath, transform } of patch.transforms) {
   const filePath = `${appPath}/${relativeFilePath}`;
   console.log(`Processing ${relativeFilePath}...`);
-  const newContent = transform(readFileSync(filePath, 'utf8'));
+  const content = readFileSync(filePath, 'utf8');
+  const newContent = transform(content);
+  if (newContent === content) {
+    console.log(`Patch already applied to ${relativeFilePath}`);
+    continue;
+  }
+  changed = true;
   writeFileSync(filePath, newContent);
+}
+
+if (!changed) {
+  console.log('All patches already applied');
+  process.exit(0);
 }
 
 console.log('Repacking app.asar to enable patch...');

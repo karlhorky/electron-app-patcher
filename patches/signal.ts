@@ -9,6 +9,15 @@ export const patchConfig: PatchConfig = {
     {
       filePath: 'bundles/preload/main.js',
       transform: (content) => {
+        if (
+          content.includes(
+            '// Patch to focus message composition input when key is pressed',
+          ) &&
+          content.includes('// End patch')
+        ) {
+          return content;
+        }
+
         // Match the
         // "(0,sr.useCallback)(()=>{Ir(!1),Kr.current&&Kr.current.submit()},[Kr,Ir]),",
         // which is a minified version of these lines:

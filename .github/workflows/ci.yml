@@ -16,3 +16,4 @@ jobs:
         run: pnpm install
       - run: pnpm eslint . --max-warnings 0
       - run: pnpm tsc
+      - run: node --test patches/*.test.ts
