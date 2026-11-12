@@ -91,10 +91,9 @@ await execP(`pnpm asar extract ${appAsarPath} ${appPath}`);
 let changed = false;
 
 for (const patchTransform of patch.transforms) {
-  const filePath = `${appPath}/${patchTransform.filePath}`;
-
   console.log(`Processing ${patchTransform.filePath}...`);
 
+  const filePath = `${appPath}/${patchTransform.filePath}`;
   const content = readFileSync(filePath, 'utf8');
 
   if (content.includes(getPatchIdComment(patchTransform.id))) {
