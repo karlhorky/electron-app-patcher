@@ -1,3 +1,4 @@
+import { getPatchMarker } from '../getPatchMarker.ts';
 import type { PatchConfig } from '../index.ts';
 
 export const patchConfig: PatchConfig = {
@@ -27,7 +28,7 @@ export const patchConfig: PatchConfig = {
         return content.replace(
           pattern,
           `$1;
-  /* electron-patcher:${id} */
+  ${getPatchMarker(id)}
   // Patch to focus message composition input when key is pressed
   (0, $2.useEffect)(() => {
     const handler = (keydownEvent) => {

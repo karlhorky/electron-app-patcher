@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
+import { getPatchMarker } from '../getPatchMarker.ts';
 import { patchConfig } from './signal.ts';
 
 const { id, transform } = patchConfig.transforms[0]!;
@@ -12,7 +13,7 @@ await test('Insert the configured Signal patch ID beside the applied code', () =
   assert.notEqual(patched, content);
   assert.equal(patched.includes('$4'), false);
   assert.ok(patched.includes('Kr.current?.focus()'));
-  assert.ok(patched.includes(`/* electron-patcher:${id} */`));
+  assert.ok(patched.includes(getPatchMarker(id)));
 });
 
 await test('Reject unsupported Signal bundles', () => {

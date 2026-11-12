@@ -13,6 +13,7 @@ import {
 } from 'node:fs';
 import { promisify } from 'node:util';
 import { getRawHeader } from '@electron/asar';
+import { getPatchMarker } from './getPatchMarker.ts';
 
 const execP = promisify(exec);
 
@@ -93,12 +94,12 @@ for (const { id, filePath: relativeFilePath, transform } of patch.transforms) {
   const filePath = `${appPath}/${relativeFilePath}`;
   console.log(`Processing ${relativeFilePath}...`);
   const content = readFileSync(filePath, 'utf8');
-  if (content.includes(`/* electron-patcher:${id} */`)) {
+  if (content.includes(getPatchMarker(id))) {
     console.log(`Patch ${id} already applied to ${relativeFilePath}`);
     continue;
   }
   const newContent = transform(content, id);
-  if (!newContent.includes(`/* electron-patcher:${id} */`)) {
+  if (!newContent.includes(getPatchMarker(id))) {
     throw new Error(`Transform ${id} did not insert its patch marker`);
   }
   changed = true;
