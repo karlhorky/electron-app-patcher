@@ -88,7 +88,7 @@ const appPath = `${resourcesPath}/app`;
 
 await execP(`pnpm asar extract ${appAsarPath} ${appPath}`);
 
-let hasAppliedPatches = false;
+let hasAppliedAnyPatch = false;
 
 for (const patchTransform of patch.transforms) {
   console.log(`Processing ${patchTransform.filePath}...`);
@@ -111,11 +111,11 @@ for (const patchTransform of patch.transforms) {
     );
   }
 
-  hasAppliedPatches = true;
+  hasAppliedAnyPatch = true;
   writeFileSync(filePath, newContent);
 }
 
-if (!hasAppliedPatches) {
+if (!hasAppliedAnyPatch) {
   console.log('All patches already applied');
   process.exit(0);
 }
