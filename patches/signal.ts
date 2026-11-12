@@ -1,4 +1,4 @@
-import type { PatchConfig } from '../';
+import type { PatchConfig } from '../index.ts';
 
 export const patchConfig: PatchConfig = {
   appPath: '/Applications/Signal.app',
