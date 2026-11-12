@@ -2,21 +2,21 @@ import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import { patchConfig } from './signal.ts';
 
-const transform = patchConfig.transforms[0]!.transform;
+const { id, transform } = patchConfig.transforms[0]!;
 
-await test('Apply the Signal patch once and return unchanged content on repeat runs', () => {
+await test('Insert the configured Signal patch ID beside the applied code', () => {
   const content =
     'const handler=(0,sr.useCallback)(()=>{Ir(!1),Kr.current&&Kr.current.submit()},[Kr,Ir]),next=1;';
-  const patched = transform(content);
+  const patched = transform(content, id);
 
   assert.notEqual(patched, content);
   assert.equal(patched.includes('$4'), false);
   assert.ok(patched.includes('Kr.current?.focus()'));
-  assert.equal(transform(patched), patched);
+  assert.ok(patched.includes(`/* electron-patcher:${id} */`));
 });
 
 await test('Reject unsupported Signal bundles', () => {
-  assert.throws(() => transform('unsupported bundle'), {
+  assert.throws(() => transform('unsupported bundle', id), {
     message: /Failed to match patch search pattern/,
   });
 });
@@ -26,6 +26,7 @@ await test('Reject an incomplete Signal patch comment', () => {
     () =>
       transform(
         '// Patch to focus message composition input when key is pressed',
+        id,
       ),
     { message: /Failed to match patch search pattern/ },
   );

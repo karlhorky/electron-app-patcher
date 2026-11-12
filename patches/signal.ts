@@ -7,17 +7,9 @@ export const patchConfig: PatchConfig = {
     // pressed PR:
     // - https://github.com/signalapp/Signal-Desktop/pull/4998
     {
+      id: 'signal-focus-message-composition-input',
       filePath: 'bundles/preload/main.js',
-      transform: (content) => {
-        if (
-          content.includes(
-            '// Patch to focus message composition input when key is pressed',
-          ) &&
-          content.includes('// End patch')
-        ) {
-          return content;
-        }
-
+      transform: (content, id) => {
         // Match the
         // "(0,sr.useCallback)(()=>{Ir(!1),Kr.current&&Kr.current.submit()},[Kr,Ir]),",
         // which is a minified version of these lines:
@@ -35,6 +27,7 @@ export const patchConfig: PatchConfig = {
         return content.replace(
           pattern,
           `$1;
+  /* electron-patcher:${id} */
   // Patch to focus message composition input when key is pressed
   (0, $2.useEffect)(() => {
     const handler = (keydownEvent) => {

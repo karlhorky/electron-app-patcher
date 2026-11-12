@@ -34,8 +34,9 @@ if (!existsSync(patchFile)) {
 export type PatchConfig = {
   appPath: string;
   transforms: {
+    id: string;
     filePath: string;
-    transform: (content: string) => string;
+    transform: (content: string, id: string) => string;
   }[];
 };
 
@@ -88,14 +89,17 @@ await execP(`pnpm asar extract ${appAsarPath} ${appPath}`);
 
 let changed = false;
 
-for (const { filePath: relativeFilePath, transform } of patch.transforms) {
+for (const { id, filePath: relativeFilePath, transform } of patch.transforms) {
   const filePath = `${appPath}/${relativeFilePath}`;
   console.log(`Processing ${relativeFilePath}...`);
   const content = readFileSync(filePath, 'utf8');
-  const newContent = transform(content);
-  if (newContent === content) {
-    console.log(`Patch already applied to ${relativeFilePath}`);
+  if (content.includes(`/* electron-patcher:${id} */`)) {
+    console.log(`Patch ${id} already applied to ${relativeFilePath}`);
     continue;
+  }
+  const newContent = transform(content, id);
+  if (!newContent.includes(`/* electron-patcher:${id} */`)) {
+    throw new Error(`Transform ${id} did not insert its patch marker`);
   }
   changed = true;
   writeFileSync(filePath, newContent);
