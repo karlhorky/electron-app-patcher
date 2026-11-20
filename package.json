@@ -16,7 +16,7 @@
     "@types/node": "26.6.6",
     "eslint": "10.14.0",
     "eslint-config-upleveled": "11.0.3",
-    "typescript": "5.9.3"
+    "typescript": "7.0.2"
   },
   "devEngines": {
     "packageManager": {
