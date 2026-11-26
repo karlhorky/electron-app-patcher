@@ -10,11 +10,11 @@
     "patch": "node index.ts"
   },
   "dependencies": {
-    "@electron/asar": "4.3.1"
+    "@electron/asar": "4.3.2"
   },
   "devDependencies": {
     "@types/node": "26.6.6",
-    "eslint": "10.14.0",
+    "eslint": "10.15.0",
     "eslint-config-upleveled": "11.0.3",
     "typescript": "5.9.3"
   },
